@@ -1,0 +1,81 @@
+.template {
+  padding: 20px;
+  max-width: 700px;
+  margin: auto;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-family: Arial, sans-serif;
+  background: #fff;
+}
+
+/* Template 2 – Blue & White */
+.template2 {
+  border-left: 5px solid #007acc;
+  background: #f0f8ff;
+}
+.template2 h1 {
+  color: #007acc;
+}
+
+/* Template 3 – Clean Grey */
+.template3 {
+  background: #fafafa;
+  border-left: 5px solid #555;
+}
+.template3 header {
+  background-color: #ddd;
+  padding: 10px;
+  border-radius: 5px;
+}
+.template3 h3 {
+  margin-top: 15px;
+  color: #333;
+}
+
+/* Template 4 – Minimalist */
+.template4 {
+  font-size: 16px;
+  border: 1px dashed #999;
+}
+.template4 .header {
+  text-align: center;
+  background: #f9f9f9;
+  padding: 10px;
+}
+.template4 .section {
+  margin: 10px 0;
+}
+/* TemplateStyles.css */
+.template {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background-color: white;
+  color: #000;
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+.template-header {
+  text-align: center;
+  border-bottom: 2px solid #444;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.template h1 {
+  margin: 0;
+  font-size: 2em;
+}
+
+.template section {
+  margin-bottom: 15px;
+}
+
+.template h2 {
+  color: #444;
+  margin-bottom: 5px;
+  font-size: 1.2em;
+}

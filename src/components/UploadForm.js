@@ -21,7 +21,7 @@ function UploadForm() {
     formData.append("resume", file);
 
     try {
-      const response = await axios.post("http://127.0.0.1:5000/api/grade", formData);
+      const response = await axios.post("https://backend-3-k1a1.onrender.com/api/grade", formData);
       console.log("Server Response:", response); // ✅ Debug log
       setScore(response.data.score);
       setFeedback(response.data.feedback);
