@@ -15,6 +15,7 @@ function App() {
             <Link to="/create">Create Resume</Link>
           </nav>
         </aside>
+
         <main className="main-content">
           <Routes>
             <Route path="/" element={<UploadForm />} />

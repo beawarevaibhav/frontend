@@ -1,48 +1,51 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 function UploadForm() {
   const [file, setFile] = useState(null);
-  const [result, setResult] = useState(null);
+  const [score, setScore] = useState(null);
+  const [feedback, setFeedback] = useState([]);
 
-  const handleChange = (e) => {
+  const handleFileChange = (e) => {
     setFile(e.target.files[0]);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!file) return;
+    if (!file) {
+      alert("Please select a file!");
+      return;
+    }
 
     const formData = new FormData();
     formData.append("resume", file);
 
     try {
-      const response = await fetch("http://127.0.0.1:5000/grade", {
-        method: "POST",
-        body: formData,
-      });
-
-      const data = await response.json();
-      setResult(data);
-    } catch (err) {
-      console.error("Upload failed:", err);
+      const response = await axios.post("http://127.0.0.1:5000/api/grade", formData);
+      console.log("Server Response:", response); // ✅ Debug log
+      setScore(response.data.score);
+      setFeedback(response.data.feedback);
+    } catch (error) {
+      console.error("Error uploading resume:", error);
+      alert("Something went wrong!");
     }
   };
 
   return (
-    <div>
+    <div className="upload-form">
+      <h2>Upload Resume for Grading</h2>
       <form onSubmit={handleSubmit}>
-        <input type="file" accept=".pdf" onChange={handleChange} />
+        <input type="file" accept=".pdf" onChange={handleFileChange} />
         <button type="submit">Upload & Grade</button>
       </form>
 
-      {result && (
+      {score !== null && (
         <div className="result">
-          <p><strong>Score:</strong> {result.score}/100</p>
-          <p><strong>Contact:</strong> {result.details.contact}</p>
-          <p><strong>Feedback:</strong></p>
+          <h3>Score: {score}/100</h3>
+          <h4>Feedback:</h4>
           <ul>
-            {result.feedback.map((item, index) => (
-              <li key={index}>{item}</li>
+            {feedback.map((item, index) => (
+              <li key={index}>⚠️ {item}</li>
             ))}
           </ul>
         </div>
