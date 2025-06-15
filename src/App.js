@@ -1,8 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import UploadForm from "./components/UploadForm";
-import CreateResume from "./components/CreateResume";
-import ResumeBuilder from "./components/ResumeBuilder/ResumeBuilder"; // ✅ New import
+import ResumeBuilder from "./components/ResumeBuilder/ResumeBuilder";
 import "./App.css";
 
 function App() {
@@ -13,16 +12,14 @@ function App() {
           <h2>Resume Grader</h2>
           <nav>
             <Link to="/">Grade Resume</Link>
-            <Link to="/create">Create Resume</Link>
-            <Link to="/build-resume">Build with Templates</Link> {/* ✅ New Link */}
+            <Link to="/build-resume">Build with Templates</Link>
           </nav>
         </aside>
 
         <main className="main-content">
           <Routes>
             <Route path="/" element={<UploadForm />} />
-            <Route path="/create" element={<CreateResume />} />
-            <Route path="/build-resume" element={<ResumeBuilder />} /> {/* ✅ New Route */}
+            <Route path="/build-resume" element={<ResumeBuilder />} />
           </Routes>
         </main>
       </div>
@@ -31,4 +28,5 @@ function App() {
 }
 
 export default App;
+
  
